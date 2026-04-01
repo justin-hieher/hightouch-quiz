@@ -200,7 +200,7 @@ function renderQuiz() {
             </div>
           </div>
           <div class="w-full bg-gray-200 rounded-full h-2">
-            <div class="bg-ht-bg0 h-2 rounded-full transition-all" style="width: ${progress}%"></div>
+            <div class="h-2 rounded-full transition-all" style="width: ${progress}%; background-color: #2EA281;"></div>
           </div>
         </div>
 

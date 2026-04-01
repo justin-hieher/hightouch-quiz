@@ -57,7 +57,7 @@ function renderLanding() {
   const sessionCount = userData.sessions.length;
 
   return `
-    <div class="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 flex flex-col items-center justify-center p-4">
+    <div class="min-h-screen bg-gradient-to-br from-ht-bg to-white flex flex-col items-center justify-center p-4">
       <div class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
         <div class="text-center mb-6">
           <div class="text-4xl mb-2">⚡</div>
@@ -66,9 +66,9 @@ function renderLanding() {
         </div>
 
         ${sessionCount > 0 ? `
-        <div class="bg-indigo-50 rounded-xl p-4 mb-6 flex gap-4 text-center">
+        <div class="bg-ht-bg rounded-xl p-4 mb-6 flex gap-4 text-center">
           <div class="flex-1">
-            <div class="text-2xl font-bold text-indigo-600">${sessionCount}</div>
+            <div class="text-2xl font-bold text-ht-dark">${sessionCount}</div>
             <div class="text-xs text-gray-500">チャレンジ回数</div>
           </div>
           <div class="flex-1">
@@ -89,13 +89,13 @@ function renderLanding() {
             type="email"
             placeholder="yourname@dearone.io"
             value="${userData.email || ''}"
-            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ht-green"
           />
         </div>
 
         <button
           id="start-btn"
-          class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition-colors text-base"
+          class="w-full bg-ht-dark hover:bg-ht-green text-white font-bold py-3 rounded-xl transition-colors text-base"
         >
           クイズをはじめる
         </button>
@@ -103,7 +103,7 @@ function renderLanding() {
         ${sessionCount > 0 ? `
         <button
           id="history-btn"
-          class="w-full mt-3 text-indigo-600 hover:text-indigo-800 text-sm py-2 transition-colors"
+          class="w-full mt-3 text-ht-dark hover:text-ht-black text-sm py-2 transition-colors"
         >
           過去の履歴を見る →
         </button>
@@ -166,7 +166,7 @@ function renderQuiz() {
         classes += ' border-gray-200 bg-gray-50 text-gray-400';
       }
     } else {
-      classes += ' border-gray-200 bg-white hover:border-indigo-400 hover:bg-indigo-50 text-gray-700';
+      classes += ' border-gray-200 bg-white hover:border-ht-green hover:bg-ht-bg text-gray-700';
     }
     return `<button class="${classes}" data-index="${i}" ${state.answered ? 'disabled' : ''}>${opt}</button>`;
   }).join('');
@@ -188,7 +188,7 @@ function renderQuiz() {
   const nextLabel = state.currentIndex < total - 1 ? '次の問題へ →' : '結果を見る';
 
   return `
-    <div class="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 flex flex-col items-center justify-center p-4">
+    <div class="min-h-screen bg-gradient-to-br from-ht-bg to-white flex flex-col items-center justify-center p-4">
       <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-lg">
         <!-- 進捗バー -->
         <div class="mb-4">
@@ -200,7 +200,7 @@ function renderQuiz() {
             </div>
           </div>
           <div class="w-full bg-gray-200 rounded-full h-2">
-            <div class="bg-indigo-500 h-2 rounded-full transition-all" style="width: ${progress}%"></div>
+            <div class="bg-ht-bg0 h-2 rounded-full transition-all" style="width: ${progress}%"></div>
           </div>
         </div>
 
@@ -219,7 +219,7 @@ function renderQuiz() {
         ${state.answered ? `
         <button
           id="next-btn"
-          class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition-colors"
+          class="w-full mt-4 bg-ht-dark hover:bg-ht-green text-white font-bold py-3 rounded-xl transition-colors"
         >
           ${nextLabel}
         </button>
@@ -329,7 +329,7 @@ function renderResults() {
   const scoreMessage = pct >= 80 ? '素晴らしい！' : pct >= 50 ? 'もう少し！' : '復習しましょう';
 
   return `
-    <div class="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+    <div class="min-h-screen bg-gradient-to-br from-ht-bg to-white p-4">
       <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-lg mx-auto">
         <!-- スコア -->
         <div class="text-center mb-6">
@@ -355,13 +355,13 @@ function renderResults() {
         <!-- もう一度 -->
         <button
           id="retry-btn"
-          class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition-colors"
+          class="w-full bg-ht-dark hover:bg-ht-green text-white font-bold py-3 rounded-xl transition-colors"
         >
           もう一度チャレンジする
         </button>
         <button
           id="home-btn"
-          class="w-full mt-3 text-indigo-600 hover:text-indigo-800 text-sm py-2 transition-colors"
+          class="w-full mt-3 text-ht-dark hover:text-ht-black text-sm py-2 transition-colors"
         >
           トップに戻る
         </button>
@@ -412,10 +412,10 @@ function renderHistory() {
 
   if (sessions.length === 0) {
     return `
-      <div class="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 flex items-center justify-center p-4">
+      <div class="min-h-screen bg-gradient-to-br from-ht-bg to-white flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md text-center">
           <p class="text-gray-500 mb-6">まだプレイ履歴がありません</p>
-          <button id="home-btn" class="text-indigo-600 hover:text-indigo-800 text-sm">← トップに戻る</button>
+          <button id="home-btn" class="text-ht-dark hover:text-ht-black text-sm">← トップに戻る</button>
         </div>
       </div>
     `;
@@ -451,13 +451,13 @@ function renderHistory() {
   const totalQuestions = sessions.reduce((s, sess) => s + sess.total, 0);
 
   return `
-    <div class="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+    <div class="min-h-screen bg-gradient-to-br from-ht-bg to-white p-4">
       <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-lg mx-auto">
         <h2 class="text-lg font-bold text-gray-800 mb-4">プレイ履歴</h2>
 
-        <div class="bg-indigo-50 rounded-xl p-4 mb-5 flex gap-4 text-center">
+        <div class="bg-ht-bg rounded-xl p-4 mb-5 flex gap-4 text-center">
           <div class="flex-1">
-            <div class="text-xl font-bold text-indigo-600">${totalSessions}</div>
+            <div class="text-xl font-bold text-ht-dark">${totalSessions}</div>
             <div class="text-xs text-gray-500">チャレンジ</div>
           </div>
           <div class="flex-1">
@@ -472,7 +472,7 @@ function renderHistory() {
 
         <div class="mb-6">${rows}</div>
 
-        <button id="home-btn" class="w-full text-indigo-600 hover:text-indigo-800 text-sm py-2 transition-colors">
+        <button id="home-btn" class="w-full text-ht-dark hover:text-ht-black text-sm py-2 transition-colors">
           ← トップに戻る
         </button>
       </div>

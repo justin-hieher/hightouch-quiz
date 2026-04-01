@@ -7,6 +7,24 @@
 
   <!-- Tailwind CSS (Play CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ht: {
+              green:  '#40DE9E',  // Accent Primary（明るいteal）
+              dark:   '#2EA281',  // Accent Secondary（CTAボタン）
+              black:  '#101111',  // Brand Dark
+              bg:     '#F3F7F5',  // Background Light
+              text:   '#3B413E',  // Text Secondary
+              border: '#E4ECE7',  // Border Light
+            }
+          }
+        }
+      }
+    }
+  </script>
 
   <!-- jsPDF (PDF出力用) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
